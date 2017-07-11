@@ -1,0 +1,53 @@
+<html>
+<head>
+  <title>Friends</title>
+</head>
+<body>
+<h1>Full Friends List</h1>
+  {% for friend in all_friends: %}
+    <p>First Name: {{ friend['first_name'] }}</p>
+    <p>Last Name: {{ friend['last_name'] }}</p>
+    <p>Email: {{ friend['email'] }}</p>
+    <form action='/friends/{{ friend['id'] }}/edit' method='GET'>
+      <button type="">Edit</button>
+    </form>
+    <form action='/friends/{{ friend['id'] }}/delete' method='POST'>
+      <button type="">Delete</button>
+    </form>
+  {% endfor %}
+  <h2>Add a Friend</h2>
+  <form action='/friends' method='POST'>
+    <label for="first_name">First Name: <input type="text" name="first_name" id="first_name"></label>
+    <label for="last_name">Last Name: <input type="text" name="last_name" id="last_name"></label>
+    <label for="email">Email: <input type="text" name="email" id="email"></label>
+    <input type="submit" value="Add">
+  </form>
+</body>
+</html>
+
+
+<!--
+<table style="width: 100%"> -->
+  <!--for purposes of not styling or creating CSS file-->
+  <!--<tr>
+    <td><h3>First Name</h3></td>
+    <td><h3>Last Name</h3></td>
+    <td><h3>Email</h3></td>
+    <td><h3>Actions</h3></td>
+  </tr>
+  {% for friend in all_friends: %}
+  <tr>
+    <td>{{ friend['first_name'] }}</td>
+    <td>{{ friend['last_name'] }}</td>
+    <td>{{ friend['email'] }}</td>
+    <td>
+      <form action='/friends/{{ friend['id'] }}/edit' method='GET'>
+        <button type="">Edit</button>
+      </form>
+      <form action='/friends/{{ friend['id'] }}/delete' method='POST'>
+        <button type="">Delete</button>
+      </form>
+    </td>
+   </tr>
+  {% endfor %}
+    <table>-->
